@@ -1,0 +1,32 @@
+﻿services:
+  #macrixpoc:
+  #  image: macrixpoc
+  #  build:
+  #    context: .
+  #    dockerfile: MacrixPoc/Dockerfile
+  #  ports:
+  #    - "8081:8081"
+  #    - "8080:8080"
+  #  restart: always
+  #  networks:
+  #    - macrix-app
+  #  environment:
+  #    - ConnectionStrings__MacrixDatabase=Server=postgres;User Id=test;Password=test;Port=5432;Database=macrix; 
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    networks:
+      - macrix-app
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: macrix
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5434:5432"
+    restart: always   
+volumes:
+  pgdata:
+networks:
+  macrix-app:    
