@@ -1,17 +1,4 @@
 ﻿services:
-  #macrixpoc:
-  #  image: macrixpoc
-  #  build:
-  #    context: .
-  #    dockerfile: MacrixPoc/Dockerfile
-  #  ports:
-  #    - "8081:8081"
-  #    - "8080:8080"
-  #  restart: always
-  #  networks:
-  #    - macrix-app
-  #  environment:
-  #    - ConnectionStrings__MacrixDatabase=Server=postgres;User Id=test;Password=test;Port=5432;Database=macrix; 
   postgres:
     image: postgres:latest
     container_name: postgres
